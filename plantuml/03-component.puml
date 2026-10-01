@@ -1,0 +1,16 @@
+@startuml
+title C4 Level 3 - Component Diagram - Search Engine
+skinparam componentStyle rectangle
+skinparam shadowing false
+rectangle "Search Engine" {
+  rectangle "Frontier Manager\nQueue for BFS / Stack for DFS" as Frontier
+  rectangle "Explored Set\nTracks visited nodes" as Explored
+  rectangle "Goal Test\nChecks current node against goal" as Goal
+  rectangle "Path Reconstructor\nMaintains and returns path" as Recon
+}
+Frontier --> Explored : check / update
+Frontier --> Goal : current node
+Goal --> Recon : goal reached
+Explored --> Frontier : unvisited neighbours
+Recon --> Goal : path state
+@enduml
