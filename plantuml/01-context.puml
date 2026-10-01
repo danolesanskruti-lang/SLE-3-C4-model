@@ -1,0 +1,11 @@
+@startuml
+title C4 Level 1 - Context Diagram - BFS/DFS Graph Search System
+skinparam componentStyle rectangle
+skinparam shadowing false
+actor User
+rectangle "BFS / DFS Graph Search System" as System
+rectangle "Graph Input / Search Data" as External
+User --> System : selects algorithm\nand provides graph
+External --> System : graph data
+System --> User : search path\nand result
+@enduml
