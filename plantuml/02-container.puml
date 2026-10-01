@@ -1,0 +1,20 @@
+@startuml
+title C4 Level 2 - Container Diagram - BFS/DFS Graph Search System
+skinparam componentStyle rectangle
+skinparam shadowing false
+actor User
+rectangle "BFS / DFS Graph Search System" {
+  rectangle "Input Module\nReceives graph, start, goal\nand algorithm choice" as Input
+  rectangle "Search Engine\nRuns BFS or DFS" as Search
+  rectangle "Visited / Memory Module\nTracks explored nodes" as Memory
+  rectangle "Path Reconstruction / Result\nBuilds final path and result" as Path
+  rectangle "Output Module\nDisplays path and search data" as Output
+}
+User --> Input : graph + parameters
+Input --> Search : search request
+Search --> Memory : visited nodes
+Memory --> Search : visited status
+Search --> Path : discovered path data
+Path --> Output : final result
+Output --> User : path + result
+@enduml
