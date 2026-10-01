@@ -1,0 +1,23 @@
+@startuml
+title C4 Level 4 - Code Level Overview - BFS/DFS
+skinparam componentStyle rectangle
+skinparam shadowing false
+class GraphData {
+  GRAPH
+  adjacency-list dictionary
+}
+class SearchFunctions {
+  bfs(graph, start, goal)
+  dfs(graph, start, goal)
+}
+class Benchmark {
+  benchmark(search_function, name)
+}
+class PythonRuntime {
+  collections.deque
+  time.perf_counter
+}
+GraphData --> SearchFunctions : supplies graph
+SearchFunctions --> Benchmark : search function
+SearchFunctions --> PythonRuntime : queue / timing
+@enduml
